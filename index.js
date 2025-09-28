@@ -1,0 +1,26 @@
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';  // To parse cookies
+import {errorHandler} from "./middlewares/error.middleware.js";
+import userRoutes from './routes/user.route.js';
+import adminRoute from './routes/admin.route.js';
+
+const app = express();
+const PORT = 5000;
+
+// Middleware
+app.use(cors({
+    origin: ['http://localhost:8081', 'http://localhost:5173'],  // Multiple frontend URLs
+    credentials: true                                            // Allow cookies to be sent
+}));
+app.use(express.json());
+app.use(cookieParser());  // Enable reading cookies
+
+// Routes
+app.use('/users', userRoutes);
+app.use('/admin', adminRoute);
+app.use(errorHandler);
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
