@@ -4,7 +4,8 @@ import cookieParser from 'cookie-parser';  // To parse cookies
 import {errorHandler} from "./middlewares/error.middleware.js";
 import userRoutes from './routes/user.route.js';
 import adminRoute from './routes/admin.route.js';
-
+import { configDotenv } from 'dotenv';
+configDotenv();
 const app = express();
 const PORT = 5000;
 

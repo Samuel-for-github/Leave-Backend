@@ -4,7 +4,7 @@ import { ApiError } from "../utils/ApiError.js";
 import {User} from "../models/user.model.js";
 import jwt from 'jsonwebtoken';
 
-const login = asyncHandler(async (req, res) => {
+const login = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email) {
@@ -41,11 +41,36 @@ const login = asyncHandler(async (req, res) => {
 
     res.status(200).json(new ApiResponse(200, { token }, "Admin login successful"));
 });
-
+const getAllUsers = asyncHandler(async (req, res)=>{
+    const users = await User.findAll();
+    
+   return res.status(200).json(new ApiResponse(200, users, "Users fetched successfully"));
+  
+})
 const dashboard = asyncHandler(async (req, res) => {
-    res.json({
+  
+   return res.json({
         email: req.admin.email,
-        message: 'Welcome to the admin dashboard'
+        message: 'Welcome to the admin dashboard',
+        
+        
+    });
+})
+
+const stats = asyncHandler(async(req, res)=>{
+    const totalUsers= (await User.findAll()).length;
+    const totalHOD = (await User.findByRole("HOD")).length
+    const totalFaculty = (await User.findByRole("FACULTY")).length
+
+    return res.json({
+        email: req.admin.email,
+        totalUsers,
+        approvedLeaves: 0,
+        rejectedLeaves: 0,
+        facultyCount: totalFaculty,
+        hodCount: totalHOD,
+        principalCount: 1
+        
     });
 })
 
@@ -54,10 +79,7 @@ const logout = asyncHandler(async (req, res) => {
     res.json({ success: true, message: 'Logged out successfully' });
 })
 
-const getAllUsers = asyncHandler(async (req, res)=>{
-    const users = await User.findAll();
-    res.status(200).json(new ApiResponse(200, users, "Users fetched successfully"));
-})
+
 const acceptUser = asyncHandler(async (req, res)=>{
     const {id} = req.params;
     console.log(id);
@@ -80,4 +102,4 @@ const rejectUser = asyncHandler(async (req, res)=>{
 })
 
 
-export { login, dashboard , logout, getAllUsers, acceptUser, rejectUser};
+export { login, dashboard , logout, getAllUsers, acceptUser, rejectUser, stats};
