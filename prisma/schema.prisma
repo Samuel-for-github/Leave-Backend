@@ -50,18 +50,18 @@ model User {
 enum LeaveType {
   Earned_Leave
   Reserved_Leave
+  Sick_Leave
   Casual_Leave
   Paid_Leave
 }
 
-
 model Leave {
-  id         String    @id @default(uuid())
-  email      String
-  leaveType  LeaveType
-  startDate  DateTime
-  endDate    DateTime
-  reason     String
-  status     STATUS    @default(PENDING)
-  createdAt  DateTime  @default(now())
+  id        String    @id @default(uuid())
+  email     String
+  leaveType LeaveType
+  startDate DateTime
+  endDate   DateTime
+  reason    String
+  status    STATUS    @default(PENDING)
+  createdAt DateTime  @default(now())
 }
