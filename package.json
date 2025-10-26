@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild index.js --bundle --platform=node --outfile=dist/server.js",
     "start": "nodemon index.js"
   },
   "keywords": [],
@@ -24,6 +25,7 @@
     "uuid": "^12.0.0"
   },
   "devDependencies": {
+    "esbuild": "^0.25.11",
     "prisma": "^6.15.0"
   }
 }
