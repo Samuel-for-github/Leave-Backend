@@ -133,9 +133,10 @@ export const updateUser = asyncHandler(async (req, res)=>{
 
 
 export const applyLeave = asyncHandler(async(req, res)=>{
-    const { email, leaveType, startDate, endDate, reason } = req.body;
+    const { email, leaveType, startDate, endDate, reason, department } = req.body;
     const newLeave = {
         email,
+        department,
         leaveType,
         startDate: new Date(startDate),
         endDate: new Date(endDate),

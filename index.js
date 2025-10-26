@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';  // To parse cookies
 import {errorHandler} from "./middlewares/error.middleware.js";
 import userRoutes from './routes/user.route.js';
 import adminRoute from './routes/admin.route.js';
+import leaveRoute from "./routes/leave.route.js";
 import { configDotenv } from 'dotenv';
 configDotenv();
 const app = express();
@@ -24,6 +25,7 @@ app.use(cookieParser());  // Enable reading cookies
 // Routes
 app.use('/users', userRoutes);
 app.use('/admin', adminRoute);
+app.use('/leaves', leaveRoute)
 app.use(errorHandler);
 // Start server
 app.get('/', (req, res) => {
