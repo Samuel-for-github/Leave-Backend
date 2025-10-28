@@ -2127,6 +2127,8 @@ export namespace Prisma {
   export type LeaveMinAggregateOutputType = {
     id: string | null
     email: string | null
+    username: string | null
+    role: $Enums.ROLE | null
     department: $Enums.DEPARTMENT | null
     leaveType: $Enums.LeaveType | null
     startDate: Date | null
@@ -2139,6 +2141,8 @@ export namespace Prisma {
   export type LeaveMaxAggregateOutputType = {
     id: string | null
     email: string | null
+    username: string | null
+    role: $Enums.ROLE | null
     department: $Enums.DEPARTMENT | null
     leaveType: $Enums.LeaveType | null
     startDate: Date | null
@@ -2151,6 +2155,8 @@ export namespace Prisma {
   export type LeaveCountAggregateOutputType = {
     id: number
     email: number
+    username: number
+    role: number
     department: number
     leaveType: number
     startDate: number
@@ -2165,6 +2171,8 @@ export namespace Prisma {
   export type LeaveMinAggregateInputType = {
     id?: true
     email?: true
+    username?: true
+    role?: true
     department?: true
     leaveType?: true
     startDate?: true
@@ -2177,6 +2185,8 @@ export namespace Prisma {
   export type LeaveMaxAggregateInputType = {
     id?: true
     email?: true
+    username?: true
+    role?: true
     department?: true
     leaveType?: true
     startDate?: true
@@ -2189,6 +2199,8 @@ export namespace Prisma {
   export type LeaveCountAggregateInputType = {
     id?: true
     email?: true
+    username?: true
+    role?: true
     department?: true
     leaveType?: true
     startDate?: true
@@ -2274,6 +2286,8 @@ export namespace Prisma {
   export type LeaveGroupByOutputType = {
     id: string
     email: string
+    username: string
+    role: $Enums.ROLE
     department: $Enums.DEPARTMENT
     leaveType: $Enums.LeaveType
     startDate: Date
@@ -2303,6 +2317,8 @@ export namespace Prisma {
   export type LeaveSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
+    username?: boolean
+    role?: boolean
     department?: boolean
     leaveType?: boolean
     startDate?: boolean
@@ -2315,6 +2331,8 @@ export namespace Prisma {
   export type LeaveSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
+    username?: boolean
+    role?: boolean
     department?: boolean
     leaveType?: boolean
     startDate?: boolean
@@ -2327,6 +2345,8 @@ export namespace Prisma {
   export type LeaveSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     email?: boolean
+    username?: boolean
+    role?: boolean
     department?: boolean
     leaveType?: boolean
     startDate?: boolean
@@ -2339,6 +2359,8 @@ export namespace Prisma {
   export type LeaveSelectScalar = {
     id?: boolean
     email?: boolean
+    username?: boolean
+    role?: boolean
     department?: boolean
     leaveType?: boolean
     startDate?: boolean
@@ -2348,7 +2370,7 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type LeaveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "department" | "leaveType" | "startDate" | "endDate" | "reason" | "status" | "createdAt", ExtArgs["result"]["leave"]>
+  export type LeaveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "role" | "department" | "leaveType" | "startDate" | "endDate" | "reason" | "status" | "createdAt", ExtArgs["result"]["leave"]>
 
   export type $LeavePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Leave"
@@ -2356,6 +2378,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
+      username: string
+      role: $Enums.ROLE
       department: $Enums.DEPARTMENT
       leaveType: $Enums.LeaveType
       startDate: Date
@@ -2788,6 +2812,8 @@ export namespace Prisma {
   interface LeaveFieldRefs {
     readonly id: FieldRef<"Leave", 'String'>
     readonly email: FieldRef<"Leave", 'String'>
+    readonly username: FieldRef<"Leave", 'String'>
+    readonly role: FieldRef<"Leave", 'ROLE'>
     readonly department: FieldRef<"Leave", 'DEPARTMENT'>
     readonly leaveType: FieldRef<"Leave", 'LeaveType'>
     readonly startDate: FieldRef<"Leave", 'DateTime'>
@@ -3195,6 +3221,8 @@ export namespace Prisma {
   export const LeaveScalarFieldEnum: {
     id: 'id',
     email: 'email',
+    username: 'username',
+    role: 'role',
     department: 'department',
     leaveType: 'leaveType',
     startDate: 'startDate',
@@ -3441,6 +3469,8 @@ export namespace Prisma {
     NOT?: LeaveWhereInput | LeaveWhereInput[]
     id?: StringFilter<"Leave"> | string
     email?: StringFilter<"Leave"> | string
+    username?: StringFilter<"Leave"> | string
+    role?: EnumROLEFilter<"Leave"> | $Enums.ROLE
     department?: EnumDEPARTMENTFilter<"Leave"> | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFilter<"Leave"> | $Enums.LeaveType
     startDate?: DateTimeFilter<"Leave"> | Date | string
@@ -3453,6 +3483,8 @@ export namespace Prisma {
   export type LeaveOrderByWithRelationInput = {
     id?: SortOrder
     email?: SortOrder
+    username?: SortOrder
+    role?: SortOrder
     department?: SortOrder
     leaveType?: SortOrder
     startDate?: SortOrder
@@ -3468,6 +3500,8 @@ export namespace Prisma {
     OR?: LeaveWhereInput[]
     NOT?: LeaveWhereInput | LeaveWhereInput[]
     email?: StringFilter<"Leave"> | string
+    username?: StringFilter<"Leave"> | string
+    role?: EnumROLEFilter<"Leave"> | $Enums.ROLE
     department?: EnumDEPARTMENTFilter<"Leave"> | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFilter<"Leave"> | $Enums.LeaveType
     startDate?: DateTimeFilter<"Leave"> | Date | string
@@ -3480,6 +3514,8 @@ export namespace Prisma {
   export type LeaveOrderByWithAggregationInput = {
     id?: SortOrder
     email?: SortOrder
+    username?: SortOrder
+    role?: SortOrder
     department?: SortOrder
     leaveType?: SortOrder
     startDate?: SortOrder
@@ -3498,6 +3534,8 @@ export namespace Prisma {
     NOT?: LeaveScalarWhereWithAggregatesInput | LeaveScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Leave"> | string
     email?: StringWithAggregatesFilter<"Leave"> | string
+    username?: StringWithAggregatesFilter<"Leave"> | string
+    role?: EnumROLEWithAggregatesFilter<"Leave"> | $Enums.ROLE
     department?: EnumDEPARTMENTWithAggregatesFilter<"Leave"> | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeWithAggregatesFilter<"Leave"> | $Enums.LeaveType
     startDate?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
@@ -3608,6 +3646,8 @@ export namespace Prisma {
   export type LeaveCreateInput = {
     id?: string
     email: string
+    username: string
+    role: $Enums.ROLE
     department: $Enums.DEPARTMENT
     leaveType: $Enums.LeaveType
     startDate: Date | string
@@ -3620,6 +3660,8 @@ export namespace Prisma {
   export type LeaveUncheckedCreateInput = {
     id?: string
     email: string
+    username: string
+    role: $Enums.ROLE
     department: $Enums.DEPARTMENT
     leaveType: $Enums.LeaveType
     startDate: Date | string
@@ -3632,6 +3674,8 @@ export namespace Prisma {
   export type LeaveUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFieldUpdateOperationsInput | $Enums.LeaveType
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3644,6 +3688,8 @@ export namespace Prisma {
   export type LeaveUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFieldUpdateOperationsInput | $Enums.LeaveType
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3656,6 +3702,8 @@ export namespace Prisma {
   export type LeaveCreateManyInput = {
     id?: string
     email: string
+    username: string
+    role: $Enums.ROLE
     department: $Enums.DEPARTMENT
     leaveType: $Enums.LeaveType
     startDate: Date | string
@@ -3668,6 +3716,8 @@ export namespace Prisma {
   export type LeaveUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFieldUpdateOperationsInput | $Enums.LeaveType
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3680,6 +3730,8 @@ export namespace Prisma {
   export type LeaveUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    role?: EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     leaveType?: EnumLeaveTypeFieldUpdateOperationsInput | $Enums.LeaveType
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3923,6 +3975,8 @@ export namespace Prisma {
   export type LeaveCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
+    username?: SortOrder
+    role?: SortOrder
     department?: SortOrder
     leaveType?: SortOrder
     startDate?: SortOrder
@@ -3935,6 +3989,8 @@ export namespace Prisma {
   export type LeaveMaxOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
+    username?: SortOrder
+    role?: SortOrder
     department?: SortOrder
     leaveType?: SortOrder
     startDate?: SortOrder
@@ -3947,6 +4003,8 @@ export namespace Prisma {
   export type LeaveMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
+    username?: SortOrder
+    role?: SortOrder
     department?: SortOrder
     leaveType?: SortOrder
     startDate?: SortOrder

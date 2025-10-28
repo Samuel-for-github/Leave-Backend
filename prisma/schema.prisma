@@ -58,6 +58,8 @@ enum LeaveType {
 model Leave {
   id         String     @id @default(uuid())
   email      String
+  username   String
+  role       ROLE
   department DEPARTMENT
   leaveType  LeaveType
   startDate  DateTime

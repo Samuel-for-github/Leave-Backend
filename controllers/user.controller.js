@@ -133,10 +133,12 @@ export const updateUser = asyncHandler(async (req, res)=>{
 
 
 export const applyLeave = asyncHandler(async(req, res)=>{
-    const { email, leaveType, startDate, endDate, reason, department } = req.body;
+    const { email, leaveType, startDate, endDate, reason, department, role, username } = req.body;
     const newLeave = {
         email,
         department,
+        username,
+        role,
         leaveType,
         startDate: new Date(startDate),
         endDate: new Date(endDate),
@@ -146,7 +148,7 @@ export const applyLeave = asyncHandler(async(req, res)=>{
       const leave = await Leave.submitLeave(newLeave)
   console.log(newLeave)
       return res.status(201).json(
-        new ApiResponse(201, leave, "Leave Submited succesfully")
+        new ApiResponse(201, leave, "Leave Submitted successfully")
       )
   
 })

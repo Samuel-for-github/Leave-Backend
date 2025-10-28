@@ -137,6 +137,8 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.LeaveScalarFieldEnum = {
   id: 'id',
   email: 'email',
+  username: 'username',
+  role: 'role',
   department: 'department',
   leaveType: 'leaveType',
   startDate: 'startDate',
