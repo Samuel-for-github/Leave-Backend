@@ -187,6 +187,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -204,6 +208,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -212,8 +217,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum ROLE {\n  NON_TEACHING\n  FACULTY\n  PRINCIPAL\n  HOD\n}\n\nenum DEPARTMENT {\n  IT\n  CSE\n  ECOMP\n}\n\nenum STATUS {\n  PENDING\n  ACCEPTED\n  REJECTED\n}\n\nmodel User {\n  id            String     @id @default(uuid())\n  username      String\n  email         String     @unique\n  role          ROLE       @default(FACULTY)\n  department    DEPARTMENT @default(IT)\n  mobile        String\n  password      String?\n  status        STATUS     @default(PENDING)\n  leave_balance Int        @default(10)\n  createdAt     DateTime   @default(now())\n  updatedAt     DateTime   @updatedAt\n}\n\nenum LeaveType {\n  Earned_Leave\n  Reserved_Leave\n  Sick_Leave\n  Casual_Leave\n  Paid_Leave\n}\n\nmodel Leave {\n  id         String     @id @default(uuid())\n  email      String\n  username   String\n  role       ROLE\n  department DEPARTMENT\n  leaveType  LeaveType\n  startDate  DateTime\n  endDate    DateTime\n  reason     String\n  status     STATUS     @default(PENDING)\n  createdAt  DateTime   @default(now())\n}\n",
-  "inlineSchemaHash": "5788342d710d783d218eb286742e77dcc7e2e5cca58224029dc1a7f0fc13c54d",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n  output        = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum ROLE {\n  NON_TEACHING\n  FACULTY\n  PRINCIPAL\n  HOD\n}\n\nenum DEPARTMENT {\n  IT\n  CSE\n  ECOMP\n}\n\nenum STATUS {\n  PENDING\n  ACCEPTED\n  REJECTED\n}\n\nmodel User {\n  id            String     @id @default(uuid())\n  username      String\n  email         String     @unique\n  role          ROLE       @default(FACULTY)\n  department    DEPARTMENT @default(IT)\n  mobile        String\n  password      String?\n  status        STATUS     @default(PENDING)\n  leave_balance Int        @default(10)\n  createdAt     DateTime   @default(now())\n  updatedAt     DateTime   @updatedAt\n}\n\nenum LeaveType {\n  Earned_Leave\n  Reserved_Leave\n  Sick_Leave\n  Casual_Leave\n  Paid_Leave\n}\n\nmodel Leave {\n  id         String     @id @default(uuid())\n  email      String\n  username   String\n  role       ROLE\n  department DEPARTMENT\n  leaveType  LeaveType\n  startDate  DateTime\n  endDate    DateTime\n  reason     String\n  status     STATUS     @default(PENDING)\n  createdAt  DateTime   @default(now())\n}\n",
+  "inlineSchemaHash": "23d8c8ef5178a8df6558726b5ccf37bee910a341e4e2e9547122b20be7bdd559",
   "copyEngine": true
 }
 config.dirname = '/'
