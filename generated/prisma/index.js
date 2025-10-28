@@ -250,6 +250,7 @@ warnEnvConflicts({
 
 const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
+exports.PrismaClientKnownRequestError = PrismaClientKnownRequestError
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
