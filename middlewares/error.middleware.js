@@ -1,6 +1,6 @@
 import { ApiError } from "../utils/ApiError.js";
-import { PrismaClientKnownRequestError } from "../generated/prisma/index.js";
-
+import pkg from "../generated/prisma/index.js";
+const {PrismaClientKnownRequestError} = pkg;
 export const errorHandler = (err, req, res, next) => {
     console.error(err);
 
