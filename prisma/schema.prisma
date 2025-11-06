@@ -35,17 +35,22 @@ enum STATUS {
 }
 
 model User {
-  id            String     @id @default(uuid())
-  username      String
-  email         String     @unique
-  role          ROLE       @default(FACULTY)
-  department    DEPARTMENT @default(IT)
-  mobile        String
-  password      String?
-  status        STATUS     @default(PENDING)
-  leave_balance Int        @default(10)
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
+  id             String     @id @default(uuid())
+  username       String
+  email          String     @unique
+  role           ROLE       @default(FACULTY)
+  department     DEPARTMENT @default(IT)
+  mobile         String
+  password       String?
+  sick_leave     Int        @default(10)
+  casual_leave   Int        @default(5)
+  paid_leave     Int        @default(5)
+  earned_leave   Int        @default(10)
+  reserved_leave Int        @default(10)
+  status         STATUS     @default(PENDING)
+  leave_balance  Int        @default(40)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 enum LeaveType {

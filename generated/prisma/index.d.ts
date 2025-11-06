@@ -1020,10 +1020,20 @@ export namespace Prisma {
   }
 
   export type UserAvgAggregateOutputType = {
+    sick_leave: number | null
+    casual_leave: number | null
+    paid_leave: number | null
+    earned_leave: number | null
+    reserved_leave: number | null
     leave_balance: number | null
   }
 
   export type UserSumAggregateOutputType = {
+    sick_leave: number | null
+    casual_leave: number | null
+    paid_leave: number | null
+    earned_leave: number | null
+    reserved_leave: number | null
     leave_balance: number | null
   }
 
@@ -1035,6 +1045,11 @@ export namespace Prisma {
     department: $Enums.DEPARTMENT | null
     mobile: string | null
     password: string | null
+    sick_leave: number | null
+    casual_leave: number | null
+    paid_leave: number | null
+    earned_leave: number | null
+    reserved_leave: number | null
     status: $Enums.STATUS | null
     leave_balance: number | null
     createdAt: Date | null
@@ -1049,6 +1064,11 @@ export namespace Prisma {
     department: $Enums.DEPARTMENT | null
     mobile: string | null
     password: string | null
+    sick_leave: number | null
+    casual_leave: number | null
+    paid_leave: number | null
+    earned_leave: number | null
+    reserved_leave: number | null
     status: $Enums.STATUS | null
     leave_balance: number | null
     createdAt: Date | null
@@ -1063,6 +1083,11 @@ export namespace Prisma {
     department: number
     mobile: number
     password: number
+    sick_leave: number
+    casual_leave: number
+    paid_leave: number
+    earned_leave: number
+    reserved_leave: number
     status: number
     leave_balance: number
     createdAt: number
@@ -1072,10 +1097,20 @@ export namespace Prisma {
 
 
   export type UserAvgAggregateInputType = {
+    sick_leave?: true
+    casual_leave?: true
+    paid_leave?: true
+    earned_leave?: true
+    reserved_leave?: true
     leave_balance?: true
   }
 
   export type UserSumAggregateInputType = {
+    sick_leave?: true
+    casual_leave?: true
+    paid_leave?: true
+    earned_leave?: true
+    reserved_leave?: true
     leave_balance?: true
   }
 
@@ -1087,6 +1122,11 @@ export namespace Prisma {
     department?: true
     mobile?: true
     password?: true
+    sick_leave?: true
+    casual_leave?: true
+    paid_leave?: true
+    earned_leave?: true
+    reserved_leave?: true
     status?: true
     leave_balance?: true
     createdAt?: true
@@ -1101,6 +1141,11 @@ export namespace Prisma {
     department?: true
     mobile?: true
     password?: true
+    sick_leave?: true
+    casual_leave?: true
+    paid_leave?: true
+    earned_leave?: true
+    reserved_leave?: true
     status?: true
     leave_balance?: true
     createdAt?: true
@@ -1115,6 +1160,11 @@ export namespace Prisma {
     department?: true
     mobile?: true
     password?: true
+    sick_leave?: true
+    casual_leave?: true
+    paid_leave?: true
+    earned_leave?: true
+    reserved_leave?: true
     status?: true
     leave_balance?: true
     createdAt?: true
@@ -1216,6 +1266,11 @@ export namespace Prisma {
     department: $Enums.DEPARTMENT
     mobile: string
     password: string | null
+    sick_leave: number
+    casual_leave: number
+    paid_leave: number
+    earned_leave: number
+    reserved_leave: number
     status: $Enums.STATUS
     leave_balance: number
     createdAt: Date
@@ -1249,6 +1304,11 @@ export namespace Prisma {
     department?: boolean
     mobile?: boolean
     password?: boolean
+    sick_leave?: boolean
+    casual_leave?: boolean
+    paid_leave?: boolean
+    earned_leave?: boolean
+    reserved_leave?: boolean
     status?: boolean
     leave_balance?: boolean
     createdAt?: boolean
@@ -1263,6 +1323,11 @@ export namespace Prisma {
     department?: boolean
     mobile?: boolean
     password?: boolean
+    sick_leave?: boolean
+    casual_leave?: boolean
+    paid_leave?: boolean
+    earned_leave?: boolean
+    reserved_leave?: boolean
     status?: boolean
     leave_balance?: boolean
     createdAt?: boolean
@@ -1277,6 +1342,11 @@ export namespace Prisma {
     department?: boolean
     mobile?: boolean
     password?: boolean
+    sick_leave?: boolean
+    casual_leave?: boolean
+    paid_leave?: boolean
+    earned_leave?: boolean
+    reserved_leave?: boolean
     status?: boolean
     leave_balance?: boolean
     createdAt?: boolean
@@ -1291,13 +1361,18 @@ export namespace Prisma {
     department?: boolean
     mobile?: boolean
     password?: boolean
+    sick_leave?: boolean
+    casual_leave?: boolean
+    paid_leave?: boolean
+    earned_leave?: boolean
+    reserved_leave?: boolean
     status?: boolean
     leave_balance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "role" | "department" | "mobile" | "password" | "status" | "leave_balance" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "role" | "department" | "mobile" | "password" | "sick_leave" | "casual_leave" | "paid_leave" | "earned_leave" | "reserved_leave" | "status" | "leave_balance" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1310,6 +1385,11 @@ export namespace Prisma {
       department: $Enums.DEPARTMENT
       mobile: string
       password: string | null
+      sick_leave: number
+      casual_leave: number
+      paid_leave: number
+      earned_leave: number
+      reserved_leave: number
       status: $Enums.STATUS
       leave_balance: number
       createdAt: Date
@@ -1744,6 +1824,11 @@ export namespace Prisma {
     readonly department: FieldRef<"User", 'DEPARTMENT'>
     readonly mobile: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly sick_leave: FieldRef<"User", 'Int'>
+    readonly casual_leave: FieldRef<"User", 'Int'>
+    readonly paid_leave: FieldRef<"User", 'Int'>
+    readonly earned_leave: FieldRef<"User", 'Int'>
+    readonly reserved_leave: FieldRef<"User", 'Int'>
     readonly status: FieldRef<"User", 'STATUS'>
     readonly leave_balance: FieldRef<"User", 'Int'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
@@ -3209,6 +3294,11 @@ export namespace Prisma {
     department: 'department',
     mobile: 'mobile',
     password: 'password',
+    sick_leave: 'sick_leave',
+    casual_leave: 'casual_leave',
+    paid_leave: 'paid_leave',
+    earned_leave: 'earned_leave',
+    reserved_leave: 'reserved_leave',
     status: 'status',
     leave_balance: 'leave_balance',
     createdAt: 'createdAt',
@@ -3307,20 +3397,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'STATUS'
-   */
-  export type EnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS'>
-    
-
-
-  /**
-   * Reference to a field of type 'STATUS[]'
-   */
-  export type ListEnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -3331,6 +3407,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'STATUS'
+   */
+  export type EnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS'>
+    
+
+
+  /**
+   * Reference to a field of type 'STATUS[]'
+   */
+  export type ListEnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS[]'>
     
 
 
@@ -3390,6 +3480,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFilter<"User"> | $Enums.DEPARTMENT
     mobile?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
+    sick_leave?: IntFilter<"User"> | number
+    casual_leave?: IntFilter<"User"> | number
+    paid_leave?: IntFilter<"User"> | number
+    earned_leave?: IntFilter<"User"> | number
+    reserved_leave?: IntFilter<"User"> | number
     status?: EnumSTATUSFilter<"User"> | $Enums.STATUS
     leave_balance?: IntFilter<"User"> | number
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -3404,6 +3499,11 @@ export namespace Prisma {
     department?: SortOrder
     mobile?: SortOrder
     password?: SortOrderInput | SortOrder
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     status?: SortOrder
     leave_balance?: SortOrder
     createdAt?: SortOrder
@@ -3421,6 +3521,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFilter<"User"> | $Enums.DEPARTMENT
     mobile?: StringFilter<"User"> | string
     password?: StringNullableFilter<"User"> | string | null
+    sick_leave?: IntFilter<"User"> | number
+    casual_leave?: IntFilter<"User"> | number
+    paid_leave?: IntFilter<"User"> | number
+    earned_leave?: IntFilter<"User"> | number
+    reserved_leave?: IntFilter<"User"> | number
     status?: EnumSTATUSFilter<"User"> | $Enums.STATUS
     leave_balance?: IntFilter<"User"> | number
     createdAt?: DateTimeFilter<"User"> | Date | string
@@ -3435,6 +3540,11 @@ export namespace Prisma {
     department?: SortOrder
     mobile?: SortOrder
     password?: SortOrderInput | SortOrder
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     status?: SortOrder
     leave_balance?: SortOrder
     createdAt?: SortOrder
@@ -3457,6 +3567,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTWithAggregatesFilter<"User"> | $Enums.DEPARTMENT
     mobile?: StringWithAggregatesFilter<"User"> | string
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
+    sick_leave?: IntWithAggregatesFilter<"User"> | number
+    casual_leave?: IntWithAggregatesFilter<"User"> | number
+    paid_leave?: IntWithAggregatesFilter<"User"> | number
+    earned_leave?: IntWithAggregatesFilter<"User"> | number
+    reserved_leave?: IntWithAggregatesFilter<"User"> | number
     status?: EnumSTATUSWithAggregatesFilter<"User"> | $Enums.STATUS
     leave_balance?: IntWithAggregatesFilter<"User"> | number
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -3553,6 +3668,11 @@ export namespace Prisma {
     department?: $Enums.DEPARTMENT
     mobile: string
     password?: string | null
+    sick_leave?: number
+    casual_leave?: number
+    paid_leave?: number
+    earned_leave?: number
+    reserved_leave?: number
     status?: $Enums.STATUS
     leave_balance?: number
     createdAt?: Date | string
@@ -3567,6 +3687,11 @@ export namespace Prisma {
     department?: $Enums.DEPARTMENT
     mobile: string
     password?: string | null
+    sick_leave?: number
+    casual_leave?: number
+    paid_leave?: number
+    earned_leave?: number
+    reserved_leave?: number
     status?: $Enums.STATUS
     leave_balance?: number
     createdAt?: Date | string
@@ -3581,6 +3706,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     mobile?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    sick_leave?: IntFieldUpdateOperationsInput | number
+    casual_leave?: IntFieldUpdateOperationsInput | number
+    paid_leave?: IntFieldUpdateOperationsInput | number
+    earned_leave?: IntFieldUpdateOperationsInput | number
+    reserved_leave?: IntFieldUpdateOperationsInput | number
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     leave_balance?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3595,6 +3725,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     mobile?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    sick_leave?: IntFieldUpdateOperationsInput | number
+    casual_leave?: IntFieldUpdateOperationsInput | number
+    paid_leave?: IntFieldUpdateOperationsInput | number
+    earned_leave?: IntFieldUpdateOperationsInput | number
+    reserved_leave?: IntFieldUpdateOperationsInput | number
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     leave_balance?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3609,6 +3744,11 @@ export namespace Prisma {
     department?: $Enums.DEPARTMENT
     mobile: string
     password?: string | null
+    sick_leave?: number
+    casual_leave?: number
+    paid_leave?: number
+    earned_leave?: number
+    reserved_leave?: number
     status?: $Enums.STATUS
     leave_balance?: number
     createdAt?: Date | string
@@ -3623,6 +3763,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     mobile?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    sick_leave?: IntFieldUpdateOperationsInput | number
+    casual_leave?: IntFieldUpdateOperationsInput | number
+    paid_leave?: IntFieldUpdateOperationsInput | number
+    earned_leave?: IntFieldUpdateOperationsInput | number
+    reserved_leave?: IntFieldUpdateOperationsInput | number
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     leave_balance?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3637,6 +3782,11 @@ export namespace Prisma {
     department?: EnumDEPARTMENTFieldUpdateOperationsInput | $Enums.DEPARTMENT
     mobile?: StringFieldUpdateOperationsInput | string
     password?: NullableStringFieldUpdateOperationsInput | string | null
+    sick_leave?: IntFieldUpdateOperationsInput | number
+    casual_leave?: IntFieldUpdateOperationsInput | number
+    paid_leave?: IntFieldUpdateOperationsInput | number
+    earned_leave?: IntFieldUpdateOperationsInput | number
+    reserved_leave?: IntFieldUpdateOperationsInput | number
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     leave_balance?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3785,13 +3935,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumSTATUSFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
-  }
-
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3801,6 +3944,13 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type EnumSTATUSFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -3827,6 +3977,11 @@ export namespace Prisma {
     department?: SortOrder
     mobile?: SortOrder
     password?: SortOrder
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     status?: SortOrder
     leave_balance?: SortOrder
     createdAt?: SortOrder
@@ -3834,6 +3989,11 @@ export namespace Prisma {
   }
 
   export type UserAvgOrderByAggregateInput = {
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     leave_balance?: SortOrder
   }
 
@@ -3845,6 +4005,11 @@ export namespace Prisma {
     department?: SortOrder
     mobile?: SortOrder
     password?: SortOrder
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     status?: SortOrder
     leave_balance?: SortOrder
     createdAt?: SortOrder
@@ -3859,6 +4024,11 @@ export namespace Prisma {
     department?: SortOrder
     mobile?: SortOrder
     password?: SortOrder
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     status?: SortOrder
     leave_balance?: SortOrder
     createdAt?: SortOrder
@@ -3866,6 +4036,11 @@ export namespace Prisma {
   }
 
   export type UserSumOrderByAggregateInput = {
+    sick_leave?: SortOrder
+    casual_leave?: SortOrder
+    paid_leave?: SortOrder
+    earned_leave?: SortOrder
+    reserved_leave?: SortOrder
     leave_balance?: SortOrder
   }
 
@@ -3925,16 +4100,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSTATUSFilter<$PrismaModel>
-    _max?: NestedEnumSTATUSFilter<$PrismaModel>
-  }
-
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3949,6 +4114,16 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type EnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSTATUSFilter<$PrismaModel>
+    _max?: NestedEnumSTATUSFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4040,16 +4215,16 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type EnumSTATUSFieldUpdateOperationsInput = {
-    set?: $Enums.STATUS
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type EnumSTATUSFieldUpdateOperationsInput = {
+    set?: $Enums.STATUS
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -4102,13 +4277,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedEnumSTATUSFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
-  }
-
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -4118,6 +4286,13 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumSTATUSFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -4196,16 +4371,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSTATUSFilter<$PrismaModel>
-    _max?: NestedEnumSTATUSFilter<$PrismaModel>
-  }
-
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -4231,6 +4396,16 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS | EnumSTATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS[] | ListEnumSTATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSTATUSFilter<$PrismaModel>
+    _max?: NestedEnumSTATUSFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {

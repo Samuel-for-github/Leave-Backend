@@ -125,10 +125,25 @@ export const getUsersByRole = asyncHandler(async (req, res)=>{
     const users = await User.findByRole(role);
     res.status(200).json(new ApiResponse(200, users, "Users fetched successfully"));
 })
-export const updateUser = asyncHandler(async (req, res)=>{
-    const {id} = req.params;
-    const {email, username, role} = req.body;
+export const updateUserLeaveBalance = asyncHandler(async (req, res)=>{
+    const {email} = req.params;
+    const { leaveType, days } = req.body;
+    console.log(email, leaveType, days);
+    const updatedUser = await User.findByEmailUpdate(
+        email,
+        { leaveType, days }
+    );
 
+    if (!updatedUser) {
+        return res.status(404).json({
+            error: 'User not found'
+        });
+    }
+
+    res.status(200).json({
+        message: 'Leave balance updated successfully',
+        user: updatedUser,
+    });
 })
 
 
