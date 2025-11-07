@@ -6,6 +6,10 @@ export const Leave = {
         where: {email},
         orderBy: {createdAt: 'desc'}
     }),
+    findLeavesByHOD: ()=>prisma.leave.findMany({
+        where:{status:'ACCEPTED_BY_HOD'},
+        orderBy: {createdAt: 'desc'}
+    }),
     findLeavesByDepartment: (department) => prisma.leave.findMany({
         where: {department},
         orderBy: {createdAt: 'desc'}

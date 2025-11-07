@@ -50,7 +50,9 @@ export type DEPARTMENT = (typeof DEPARTMENT)[keyof typeof DEPARTMENT]
 export const STATUS: {
   PENDING: 'PENDING',
   ACCEPTED: 'ACCEPTED',
-  REJECTED: 'REJECTED'
+  REJECTED: 'REJECTED',
+  ACCEPTED_BY_HOD: 'ACCEPTED_BY_HOD',
+  REJECTED_BY_HOD: 'REJECTED_BY_HOD'
 };
 
 export type STATUS = (typeof STATUS)[keyof typeof STATUS]

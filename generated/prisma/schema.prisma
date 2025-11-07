@@ -32,6 +32,8 @@ enum STATUS {
   PENDING
   ACCEPTED
   REJECTED
+  ACCEPTED_BY_HOD
+  REJECTED_BY_HOD
 }
 
 model User {
@@ -48,7 +50,7 @@ model User {
   earned_leave   Int        @default(10)
   reserved_leave Int        @default(10)
   status         STATUS     @default(PENDING)
-  leave_balance  Int        @default(10)
+  leave_balance  Int        @default(40)
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 }

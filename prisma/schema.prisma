@@ -32,6 +32,8 @@ enum STATUS {
   PENDING
   ACCEPTED
   REJECTED
+  ACCEPTED_BY_HOD
+  REJECTED_BY_HOD
 }
 
 model User {

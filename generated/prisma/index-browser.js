@@ -183,7 +183,9 @@ exports.DEPARTMENT = exports.$Enums.DEPARTMENT = {
 exports.STATUS = exports.$Enums.STATUS = {
   PENDING: 'PENDING',
   ACCEPTED: 'ACCEPTED',
-  REJECTED: 'REJECTED'
+  REJECTED: 'REJECTED',
+  ACCEPTED_BY_HOD: 'ACCEPTED_BY_HOD',
+  REJECTED_BY_HOD: 'REJECTED_BY_HOD'
 };
 
 exports.LeaveType = exports.$Enums.LeaveType = {
