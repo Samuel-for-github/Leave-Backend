@@ -17,5 +17,10 @@ export const Leave = {
     updateLeaveStatus: (requestId, status) => prisma.leave.update({
         where: {id: requestId},
         data: {status}
-    })
+    }),
+    findLeaves: (filters)=> prisma.leave.findMany({where: filters, 
+     orderBy: {
+        createdAt: "desc",
+      },
+})
 }

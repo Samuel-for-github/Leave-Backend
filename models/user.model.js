@@ -13,7 +13,7 @@ export const User = {
         }
     }),
     findById: (id)=> prisma.user.findUnique({where: {id: String(id)}}),
-    findAll: ()=> prisma.user.findMany(),
+  findAll: () => prisma.user.findMany(),
     findByRole: (role)=> prisma.user.findMany({where: {role}}),
     findByEmailUpdate: async (email, data) => {
 

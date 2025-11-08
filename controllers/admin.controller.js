@@ -46,6 +46,7 @@ const login = asyncHandler(async (req, res, next) => {
 });
 const getAllUsers = asyncHandler(async (req, res)=>{
     const users = await User.findAll();
+    console.log(users);
     
    return res.status(200).json(new ApiResponse(200, users, "Users fetched successfully"));
   

@@ -52,4 +52,31 @@ const updateLeaveStatus = asyncHandler(async (req, res) => {
         new ApiResponse(200, requestId, "Leave status updated successfully")
     );
 });
-export { getLeavesByDepartment, updateLeaveStatus , getLeavesAcceptedByHOD};
+
+const getLeavesHistory = asyncHandler(async(req, res)=>{
+     const { userId, status, fromDate, toDate, department } = req.query;
+console.log(userId, status, fromDate, toDate);
+
+    // Build dynamic filters
+    const filters = {};
+
+    if (userId) filters.email = userId;
+    if (status) filters.status = status;
+    if (department) {
+        filters.department = department
+    }
+    if (fromDate && toDate) {
+      filters.createdAt = {
+        gte: new Date(fromDate),
+        lte: new Date(toDate),
+      };
+    }
+    const leaveHistory = await Leave.findLeaves(filters)
+    console.log("leave", leaveHistory);
+    
+     return res.status(200).json(
+        new ApiResponse(200, leaveHistory, "Leaves fetched successfully")
+    );
+
+})
+export { getLeavesByDepartment, updateLeaveStatus , getLeavesAcceptedByHOD, getLeavesHistory};
