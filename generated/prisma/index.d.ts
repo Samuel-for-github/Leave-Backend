@@ -2221,6 +2221,12 @@ export namespace Prisma {
     startDate: Date | null
     endDate: Date | null
     reason: string | null
+    date: Date | null
+    classOrLab: string | null
+    theoryOrPractical: string | null
+    fromTime: Date | null
+    toTime: Date | null
+    adjustedBy: string | null
     status: $Enums.STATUS | null
     createdAt: Date | null
   }
@@ -2235,6 +2241,12 @@ export namespace Prisma {
     startDate: Date | null
     endDate: Date | null
     reason: string | null
+    date: Date | null
+    classOrLab: string | null
+    theoryOrPractical: string | null
+    fromTime: Date | null
+    toTime: Date | null
+    adjustedBy: string | null
     status: $Enums.STATUS | null
     createdAt: Date | null
   }
@@ -2249,6 +2261,12 @@ export namespace Prisma {
     startDate: number
     endDate: number
     reason: number
+    date: number
+    classOrLab: number
+    theoryOrPractical: number
+    fromTime: number
+    toTime: number
+    adjustedBy: number
     status: number
     createdAt: number
     _all: number
@@ -2265,6 +2283,12 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     reason?: true
+    date?: true
+    classOrLab?: true
+    theoryOrPractical?: true
+    fromTime?: true
+    toTime?: true
+    adjustedBy?: true
     status?: true
     createdAt?: true
   }
@@ -2279,6 +2303,12 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     reason?: true
+    date?: true
+    classOrLab?: true
+    theoryOrPractical?: true
+    fromTime?: true
+    toTime?: true
+    adjustedBy?: true
     status?: true
     createdAt?: true
   }
@@ -2293,6 +2323,12 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     reason?: true
+    date?: true
+    classOrLab?: true
+    theoryOrPractical?: true
+    fromTime?: true
+    toTime?: true
+    adjustedBy?: true
     status?: true
     createdAt?: true
     _all?: true
@@ -2380,6 +2416,12 @@ export namespace Prisma {
     startDate: Date
     endDate: Date
     reason: string
+    date: Date
+    classOrLab: string
+    theoryOrPractical: string
+    fromTime: Date
+    toTime: Date
+    adjustedBy: string
     status: $Enums.STATUS
     createdAt: Date
     _count: LeaveCountAggregateOutputType | null
@@ -2411,6 +2453,12 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     reason?: boolean
+    date?: boolean
+    classOrLab?: boolean
+    theoryOrPractical?: boolean
+    fromTime?: boolean
+    toTime?: boolean
+    adjustedBy?: boolean
     status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["leave"]>
@@ -2425,6 +2473,12 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     reason?: boolean
+    date?: boolean
+    classOrLab?: boolean
+    theoryOrPractical?: boolean
+    fromTime?: boolean
+    toTime?: boolean
+    adjustedBy?: boolean
     status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["leave"]>
@@ -2439,6 +2493,12 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     reason?: boolean
+    date?: boolean
+    classOrLab?: boolean
+    theoryOrPractical?: boolean
+    fromTime?: boolean
+    toTime?: boolean
+    adjustedBy?: boolean
     status?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["leave"]>
@@ -2453,11 +2513,17 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     reason?: boolean
+    date?: boolean
+    classOrLab?: boolean
+    theoryOrPractical?: boolean
+    fromTime?: boolean
+    toTime?: boolean
+    adjustedBy?: boolean
     status?: boolean
     createdAt?: boolean
   }
 
-  export type LeaveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "role" | "department" | "leaveType" | "startDate" | "endDate" | "reason" | "status" | "createdAt", ExtArgs["result"]["leave"]>
+  export type LeaveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "role" | "department" | "leaveType" | "startDate" | "endDate" | "reason" | "date" | "classOrLab" | "theoryOrPractical" | "fromTime" | "toTime" | "adjustedBy" | "status" | "createdAt", ExtArgs["result"]["leave"]>
 
   export type $LeavePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Leave"
@@ -2472,6 +2538,12 @@ export namespace Prisma {
       startDate: Date
       endDate: Date
       reason: string
+      date: Date
+      classOrLab: string
+      theoryOrPractical: string
+      fromTime: Date
+      toTime: Date
+      adjustedBy: string
       status: $Enums.STATUS
       createdAt: Date
     }, ExtArgs["result"]["leave"]>
@@ -2906,6 +2978,12 @@ export namespace Prisma {
     readonly startDate: FieldRef<"Leave", 'DateTime'>
     readonly endDate: FieldRef<"Leave", 'DateTime'>
     readonly reason: FieldRef<"Leave", 'String'>
+    readonly date: FieldRef<"Leave", 'DateTime'>
+    readonly classOrLab: FieldRef<"Leave", 'String'>
+    readonly theoryOrPractical: FieldRef<"Leave", 'String'>
+    readonly fromTime: FieldRef<"Leave", 'DateTime'>
+    readonly toTime: FieldRef<"Leave", 'DateTime'>
+    readonly adjustedBy: FieldRef<"Leave", 'String'>
     readonly status: FieldRef<"Leave", 'STATUS'>
     readonly createdAt: FieldRef<"Leave", 'DateTime'>
   }
@@ -3320,6 +3398,12 @@ export namespace Prisma {
     startDate: 'startDate',
     endDate: 'endDate',
     reason: 'reason',
+    date: 'date',
+    classOrLab: 'classOrLab',
+    theoryOrPractical: 'theoryOrPractical',
+    fromTime: 'fromTime',
+    toTime: 'toTime',
+    adjustedBy: 'adjustedBy',
     status: 'status',
     createdAt: 'createdAt'
   };
@@ -3593,6 +3677,12 @@ export namespace Prisma {
     startDate?: DateTimeFilter<"Leave"> | Date | string
     endDate?: DateTimeFilter<"Leave"> | Date | string
     reason?: StringFilter<"Leave"> | string
+    date?: DateTimeFilter<"Leave"> | Date | string
+    classOrLab?: StringFilter<"Leave"> | string
+    theoryOrPractical?: StringFilter<"Leave"> | string
+    fromTime?: DateTimeFilter<"Leave"> | Date | string
+    toTime?: DateTimeFilter<"Leave"> | Date | string
+    adjustedBy?: StringFilter<"Leave"> | string
     status?: EnumSTATUSFilter<"Leave"> | $Enums.STATUS
     createdAt?: DateTimeFilter<"Leave"> | Date | string
   }
@@ -3607,6 +3697,12 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     reason?: SortOrder
+    date?: SortOrder
+    classOrLab?: SortOrder
+    theoryOrPractical?: SortOrder
+    fromTime?: SortOrder
+    toTime?: SortOrder
+    adjustedBy?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }
@@ -3624,6 +3720,12 @@ export namespace Prisma {
     startDate?: DateTimeFilter<"Leave"> | Date | string
     endDate?: DateTimeFilter<"Leave"> | Date | string
     reason?: StringFilter<"Leave"> | string
+    date?: DateTimeFilter<"Leave"> | Date | string
+    classOrLab?: StringFilter<"Leave"> | string
+    theoryOrPractical?: StringFilter<"Leave"> | string
+    fromTime?: DateTimeFilter<"Leave"> | Date | string
+    toTime?: DateTimeFilter<"Leave"> | Date | string
+    adjustedBy?: StringFilter<"Leave"> | string
     status?: EnumSTATUSFilter<"Leave"> | $Enums.STATUS
     createdAt?: DateTimeFilter<"Leave"> | Date | string
   }, "id">
@@ -3638,6 +3740,12 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     reason?: SortOrder
+    date?: SortOrder
+    classOrLab?: SortOrder
+    theoryOrPractical?: SortOrder
+    fromTime?: SortOrder
+    toTime?: SortOrder
+    adjustedBy?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
     _count?: LeaveCountOrderByAggregateInput
@@ -3658,6 +3766,12 @@ export namespace Prisma {
     startDate?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
     endDate?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
     reason?: StringWithAggregatesFilter<"Leave"> | string
+    date?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
+    classOrLab?: StringWithAggregatesFilter<"Leave"> | string
+    theoryOrPractical?: StringWithAggregatesFilter<"Leave"> | string
+    fromTime?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
+    toTime?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
+    adjustedBy?: StringWithAggregatesFilter<"Leave"> | string
     status?: EnumSTATUSWithAggregatesFilter<"Leave"> | $Enums.STATUS
     createdAt?: DateTimeWithAggregatesFilter<"Leave"> | Date | string
   }
@@ -3805,6 +3919,12 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     reason: string
+    date: Date | string
+    classOrLab: string
+    theoryOrPractical: string
+    fromTime: Date | string
+    toTime: Date | string
+    adjustedBy: string
     status?: $Enums.STATUS
     createdAt?: Date | string
   }
@@ -3819,6 +3939,12 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     reason: string
+    date: Date | string
+    classOrLab: string
+    theoryOrPractical: string
+    fromTime: Date | string
+    toTime: Date | string
+    adjustedBy: string
     status?: $Enums.STATUS
     createdAt?: Date | string
   }
@@ -3833,6 +3959,12 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reason?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    classOrLab?: StringFieldUpdateOperationsInput | string
+    theoryOrPractical?: StringFieldUpdateOperationsInput | string
+    fromTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    toTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    adjustedBy?: StringFieldUpdateOperationsInput | string
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3847,6 +3979,12 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reason?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    classOrLab?: StringFieldUpdateOperationsInput | string
+    theoryOrPractical?: StringFieldUpdateOperationsInput | string
+    fromTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    toTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    adjustedBy?: StringFieldUpdateOperationsInput | string
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3861,6 +3999,12 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     reason: string
+    date: Date | string
+    classOrLab: string
+    theoryOrPractical: string
+    fromTime: Date | string
+    toTime: Date | string
+    adjustedBy: string
     status?: $Enums.STATUS
     createdAt?: Date | string
   }
@@ -3875,6 +4019,12 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reason?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    classOrLab?: StringFieldUpdateOperationsInput | string
+    theoryOrPractical?: StringFieldUpdateOperationsInput | string
+    fromTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    toTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    adjustedBy?: StringFieldUpdateOperationsInput | string
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3889,6 +4039,12 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reason?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    classOrLab?: StringFieldUpdateOperationsInput | string
+    theoryOrPractical?: StringFieldUpdateOperationsInput | string
+    fromTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    toTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    adjustedBy?: StringFieldUpdateOperationsInput | string
     status?: EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4159,6 +4315,12 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     reason?: SortOrder
+    date?: SortOrder
+    classOrLab?: SortOrder
+    theoryOrPractical?: SortOrder
+    fromTime?: SortOrder
+    toTime?: SortOrder
+    adjustedBy?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }
@@ -4173,6 +4335,12 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     reason?: SortOrder
+    date?: SortOrder
+    classOrLab?: SortOrder
+    theoryOrPractical?: SortOrder
+    fromTime?: SortOrder
+    toTime?: SortOrder
+    adjustedBy?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }
@@ -4187,6 +4355,12 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     reason?: SortOrder
+    date?: SortOrder
+    classOrLab?: SortOrder
+    theoryOrPractical?: SortOrder
+    fromTime?: SortOrder
+    toTime?: SortOrder
+    adjustedBy?: SortOrder
     status?: SortOrder
     createdAt?: SortOrder
   }

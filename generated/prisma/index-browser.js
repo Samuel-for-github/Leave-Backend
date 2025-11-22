@@ -149,6 +149,12 @@ exports.Prisma.LeaveScalarFieldEnum = {
   startDate: 'startDate',
   endDate: 'endDate',
   reason: 'reason',
+  date: 'date',
+  classOrLab: 'classOrLab',
+  theoryOrPractical: 'theoryOrPractical',
+  fromTime: 'fromTime',
+  toTime: 'toTime',
+  adjustedBy: 'adjustedBy',
   status: 'status',
   createdAt: 'createdAt'
 };

@@ -154,7 +154,14 @@ export const getUsersByDepartment = asyncHandler(async (req, res)=>{
 });
 
 export const applyLeave = asyncHandler(async(req, res)=>{
-    const { email, leaveType, startDate, endDate, reason, department, role, username } = req.body;
+    const { email, leaveType, startDate, endDate, reason, department, role, username, date,
+        classOrLab,
+        theoryOrPractical,
+        fromTime,
+        toTime,
+        adjustedBy,
+    } = req.body;
+    console.log(classOrLab, date, theoryOrPractical, fromTime, toTime, adjustedBy);
     const newLeave = {
         email,
         department,
@@ -165,6 +172,12 @@ export const applyLeave = asyncHandler(async(req, res)=>{
         endDate: new Date(endDate),
         reason,
         createdAt: new Date(),
+        date: new Date(date),
+        classOrLab,
+        theoryOrPractical,
+        fromTime,
+        toTime,
+        adjustedBy,
       };
       const leave = await Leave.submitLeave(newLeave)
   console.log(newLeave)

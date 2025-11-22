@@ -64,15 +64,21 @@ enum LeaveType {
 }
 
 model Leave {
-  id         String     @id @default(uuid())
-  email      String
-  username   String
-  role       ROLE
-  department DEPARTMENT
-  leaveType  LeaveType
-  startDate  DateTime
-  endDate    DateTime
-  reason     String
-  status     STATUS     @default(PENDING)
-  createdAt  DateTime   @default(now())
+  id                String     @id @default(uuid())
+  email             String
+  username          String
+  role              ROLE
+  department        DEPARTMENT
+  leaveType         LeaveType
+  startDate         DateTime
+  endDate           DateTime
+  reason            String
+  date              DateTime
+  classOrLab        String
+  theoryOrPractical String
+  fromTime          DateTime
+  toTime            DateTime
+  adjustedBy        String
+  status            STATUS     @default(PENDING)
+  createdAt         DateTime   @default(now())
 }
