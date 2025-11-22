@@ -1,4 +1,5 @@
 import prisma from "./prisma.js";
+import {asyncHandler} from "../utils/asyncHandler.js";
 
 export const User = {
     insert: (data)=> prisma.user.create({data}),
@@ -50,6 +51,12 @@ export const User = {
         });
 
     },
+    findByDepartment: (department) => {
+        return prisma.user.findMany({
+            where: { department:department, role: 'FACULTY' }
+        });
+    },
     updateUser: (id, data)=> prisma.user.update({where: {id}, data}),
+
     deleteUser: (id)=> prisma.user.delete({where: {id}}),
 }

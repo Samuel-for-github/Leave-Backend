@@ -145,7 +145,13 @@ export const updateUserLeaveBalance = asyncHandler(async (req, res)=>{
         user: updatedUser,
     });
 })
-
+export const getUsersByDepartment = asyncHandler(async (req, res)=>{
+    const {department} = req.params;
+    console.log(department);
+    const users = await User.findByDepartment(department);
+    console.log(users);
+    res.status(200).json(new ApiResponse(200, users, "Users fetched successfully"));
+});
 
 export const applyLeave = asyncHandler(async(req, res)=>{
     const { email, leaveType, startDate, endDate, reason, department, role, username } = req.body;
