@@ -145,6 +145,14 @@ export const updateUserLeaveBalance = asyncHandler(async (req, res)=>{
         user: updatedUser,
     });
 })
+
+export const updateUser = asyncHandler(async (req, res)=>{
+    const {id} = req.params;
+    const data = req.body;
+    const updatedUser = await User.updateUser(id, data);
+    res.status(200).json(new ApiResponse(200, updatedUser, "User updated successfully"));
+});
+
 export const getUsersByDepartment = asyncHandler(async (req, res)=>{
     const {department} = req.params;
     console.log(department);
