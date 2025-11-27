@@ -3,7 +3,7 @@ import {asyncHandler} from "../utils/asyncHandler.js";
 import {ApiResponse} from "../utils/ApiResponse.js";
 import {ApiError} from "../utils/ApiError.js";
 import {sendMailForLeave} from "../utils/mail.js";
-
+import { Parser } from "json2csv";
 const getLeavesByDepartment = asyncHandler(async (req, res) => {
     const { department } = req.params;
     console.log(department)
@@ -54,9 +54,9 @@ const updateLeaveStatus = asyncHandler(async (req, res) => {
 });
 
 const getLeavesHistory = asyncHandler(async(req, res)=>{
-     const { userId, status, fromDate, toDate, department } = req.query;
-console.log(userId, status, fromDate, toDate);
+     const { userId, status,  department, leaveType, date } = req.query;
 
+    console.log(date)
     // Build dynamic filters
     const filters = {};
 
@@ -65,11 +65,17 @@ console.log(userId, status, fromDate, toDate);
     if (department) {
         filters.department = department
     }
-    if (fromDate && toDate) {
-      filters.createdAt = {
-        gte: new Date(fromDate),
-        lte: new Date(toDate),
-      };
+    if (date) {
+        const start = new Date(date);
+        start.setHours(0, 0, 0, 0);
+
+        const end = new Date(date);
+        end.setHours(23, 59, 59, 999);
+
+        filters.createdAt = {gte: start, lte: end};
+        if (leaveType) {
+            filters.leaveType = leaveType;
+        }
     }
     const leaveHistory = await Leave.findLeaves(filters)
     console.log("leave", leaveHistory);
@@ -79,4 +85,52 @@ console.log(userId, status, fromDate, toDate);
     );
 
 })
-export { getLeavesByDepartment, updateLeaveStatus , getLeavesAcceptedByHOD, getLeavesHistory};
+
+const exportCSV = asyncHandler(async (req, res) => {
+    // Implementation for exporting leave history as CSV
+    console.log("Exporting CSV");
+    const filters = {};
+    const { userId, status,  department, leaveType, date } = req.query;
+
+
+    if (userId) filters.email = userId;
+    if (status) filters.status = status;
+    if (department) {
+        filters.department = department
+    }
+    if (date) {
+        const start = new Date(date);
+        start.setHours(0, 0, 0, 0);
+
+        const end = new Date(date);
+        end.setHours(23, 59, 59, 999);
+
+        filters.createdAt = {gte: start, lte: end};
+        if (leaveType) {
+            filters.leaveType = leaveType;
+        }
+    }
+    const leaveHistory = await Leave.findLeaves(filters);
+    if (!leaveHistory.length) {
+        return res.status(403).json({ message: "No data found for export" });
+    }
+    console.log("leave csv", leaveHistory);
+
+    const uniqueFields = Array.from(
+        new Set(leaveHistory.flatMap(item => Object.keys(item)))
+    );
+
+    const json2csv = new Parser({ fields: uniqueFields });
+    const csv = json2csv.parse(leaveHistory);
+
+    res.setHeader("Content-Type", "text/csv");
+    res.setHeader(
+        "Content-Disposition",
+        `attachment; filename=leave-history-${new Date().toISOString().split("T")[0]}.csv`
+    );
+
+    return res.status(200).end(csv);
+
+});
+
+export { getLeavesByDepartment, updateLeaveStatus , getLeavesAcceptedByHOD, getLeavesHistory, exportCSV};
